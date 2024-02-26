@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lip Gloss Paradise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Lip Gloss Paradise</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <div class="left-side">
+                <li><a href="#video">Featured Lip Gloss</a></li>
+                <li><a href="#product-info">About Our Lip Gloss</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </div>
+        </ul>
+    </nav>
+
+    <section id="video">
+        <h2>Featured Lip Gloss</h2>
+        <iframe width="560" height="315" src="https://www.pexels.com/video/a-woman-applying-lip-balm-5206385/" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="product-info">
+        <h2>About Our Lip Gloss</h2>
+        <p>Discover the magic of our premium lip gloss collection. Our products are crafted with the finest ingredients to give you the perfect, glossy pout.</p>
+        <ul>
+            <li>High-shine formula</li>
+            <li>Long-lasting wear</li>
+            <li>Vibrant color options</li>
+            <li>Moisturizing and nourishing</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Email: infolipglossparadise@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Lip Gloss Paradise</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+            for (const link of scrollLinks) {
+                link.addEventListener('click', clickHandler);
+            }
+
+            function clickHandler(e) {
+                e.preventDefault();
+                const href = this.getAttribute("href");
+                const offsetTop = document.querySelector(href).offsetTop;
+
+                scroll({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Message:", message);
+
+            const form = document.getElementById("contactForm");
+            form.innerHTML = "<h2>Thank You!</h2><p>Your message has been sent.</p>";
+        }
+    </script>
+
+</body>
+
+</html>
